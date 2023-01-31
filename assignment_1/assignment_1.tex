@@ -43,8 +43,8 @@
 \begin{enumerate}
     \item (aa)* (b (aa)*)* OR ((aa)* $\mid$ b(bb)*)*
     \item ((a$\mid$b)* (b)) $\mid$ (((a$\mid$b)(b))* (a)) 
-    \item (a?b)*
-    \item 
+    \item (b $\mid$ ab)*a?
+    \item (ab*c) $\mid$ (ba*c) $\mid$ (ac*b) $\mid$ (bc*a) $\mid$ (cb*a) $\mid$ (ca*b)
     \item It can not be constructed.
     \item \text{[a-z, A-Z, 0-9]}\{13,18\} @ \text{[a-z, A-Z]} \{4\} (.edu)
     \item 
@@ -67,8 +67,14 @@
 
 % PROBLEM 3
 \newproblem 
+\begin{enumerate}
+    \item S $\rightarrow$ aXb $\mid$ bXa
+    
+    X $\rightarrow$ (\{a $\mid$ b\} X) $\mid \epsilon$
 
+    \item S $\rightarrow$ aSb $\mid$ bSa $\mid \epsilon$
 
+\end{enumerate}
 
 
 
