@@ -79,7 +79,11 @@
 
     \item S $\rightarrow$ aSb $\mid$ bSa $\mid \epsilon$
     
-    \item Yes, the given grammar is ambiguous because it does not specify a unique parse tree for any string in the language. The unambiguous grammar is: \[ <binary-string> \rightarrow 0 <binary-string> \mid 1<binary-string> \mid \epsilon \] 
+    \item Yes, the given grammar is ambiguous because it does not specify a unique parse tree for any string in the language. The unambiguous grammar is:
+    
+    $<binary-string> \rightarrow <b> \mid <binary-string> <b>$
+      
+    $<b> \rightarrow 0 \mid 1$
 
 \end{enumerate}
 
@@ -171,9 +175,9 @@
 \newproblem 
 \begin{enumerate}
 
-    \item
+    \item There are $3$ parse trees possible.
     
-    \item
+    \item No, the number of derivations for the string in Q4.4 is not same as the number of parse trees because 
     
     \item Yes, the grammar is ambiguous because there are multiple parse trees possible.
     
@@ -181,7 +185,9 @@
     
     $ T \rightarrow T - F \mid F $
 
-    $ F \rightarrow D \mid \epsilon $
+    $ F \rightarrow D \mid S $
+
+    $D$ is the mathematical digits.
 
     \item Yes. We can control the precedence of $'+'$ and $'-'$ signs. The grammar in $5.4$ gives $'-'$ sign precedence over $'+'$. Other way is to give precedence to $'+'$.
 
@@ -199,9 +205,29 @@
     
     It is unambiguous because the grammar is right recursive and right associated.
 
-    \item 
+    \item Yes, this grammar is ambiguous because there are multiple parse trees possible. Here's is an example: \includegraphics[scale = 0.75]{6.2} 
 
+    The unambiguous grammar is:
 
+    $ S \rightarrow  aS \mid T $
+    
+    $ T \rightarrow Tb \mid F $
+
+    $ F \rightarrow b \mid \epsilon $
+
+    \item $ E \rightarrow  E + T \mid T $
+    
+    $ T \rightarrow T - F \mid F $
+
+    $ F \rightarrow \neg F \mid D $
+
+    $ D \rightarrow 0 \mid 1 \mid 2 \mid 3 \mid 4 \mid 5 \mid 6 \mid 7 \mid 8 \mid 9 $
+
+    \item Yes, context-free grammars can represent all regular languages.
+    
+    Yes, because all regular languages can be represented by CFGs.
+    
+    No, Context-free grammars cannot represent all possible languages (i.e. non-regular).
 \end{enumerate}
 
 \end{document}
