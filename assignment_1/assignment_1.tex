@@ -47,7 +47,7 @@
     \item $\epsilon \mid$ a $\mid$ b $\mid$ (a $\mid$ b) (ab $\mid$ ba $\mid$ bb)
     \item (b $\mid$ ab)*a?
     \item (ab*c) $\mid$ (ba*c) $\mid$ (ac*b) $\mid$ (bc*a) $\mid$ (cb*a) $\mid$ (ca*b)
-    \item It can not be constructed.
+    \item It can not be constructed because regex cannot do storage.
     \item \text{[a-z, A-Z, 0-9]}\{13,18\} @ \text{[a-z, A-Z]} \{4\} (.edu)
     \item .* ( ( ( ) .*
 
@@ -65,6 +65,22 @@
     So, in a sense, Java is compiled into an intermediate form (bytecode) and then interpreted by the JVM. However, the JVM can also use just-in-time (JIT) compilation to dynamically compile the bytecode into machine code for improved performance at runtime.
     
     Therefore, in a broader sense, Java can be considered both compiled and interpreted, depending on the stage of the execution process and the specific implementation of the JVM.
+
+    \item It would not be a DFA if arrows are inverted.
+    
+    \includegraphics[scale = 0.50]{2.2}
+    
+    \item DFAs are subsets of NFAs, therefore no conversion needed.
+    
+    \item It is not possible because DFA has no storage.
+    
+    \item \includegraphics[scale = 0.50]{2.5}
+    
+    \item \includegraphics[scale = 0.50]{2.6}
+
+
+
+
 \end{enumerate}
 
 
@@ -73,11 +89,12 @@
 % PROBLEM 3
 \newproblem 
 \begin{enumerate}
-    \item S $\rightarrow$ aXb $\mid$ bXa
+    \item
+    $ S \rightarrow aXb \mid bXa $
     
-    X $\rightarrow$ (\{a $\mid$ b\} X) $\mid \epsilon$
+    $ X \rightarrow aX \mid bX \mid \epsilon $
 
-    \item S $\rightarrow$ aSb $\mid$ bSa $\mid \epsilon$
+    \item $ S \rightarrow aSb \mid bSa \mid \epsilon $
     
     \item Yes, the given grammar is ambiguous because it does not specify a unique parse tree for any string in the language. The unambiguous grammar is:
     
@@ -122,50 +139,15 @@
 
     $ S \rightarrow 8 + 6 + 3 - 5 $
 
-    \item There are multiple leftmost \& rightmost derivations for this string as the grammar is ambiguous.
-
-    Leftmost derivations are those that start at the root of the parse tree and go down the tree towards the leaves, replacing the leftmost non-terminal symbol with its expansion at each step.
+    \item Leftmost derivations are those that start at the root of the parse tree and go down the tree towards the leaves, replacing the leftmost non-terminal symbol with its expansion at each step.
     
     Rightmost derivations are those that start at the leaves of the parse tree and go up the tree towards the root, replacing the rightmost non-terminal symbol with its expansion at each step.
     
-    For example, the $2$ leftmost derivations would be:
+    There are $3$ leftmost \& rightmost derivations each (total = $6$) for this string because there are $3$ potential starting positions and no branching decisions. For example, the $2$ leftmost derivations would be:
 
-    \begin{multicols}{2}      
-    
-    $ S \rightarrow S - S $
+    \includegraphics[scale = 0.50]{4.5}
 
-    $ S \rightarrow S + S - S $
-
-    $ S \rightarrow S + S + S - S $
-
-    $ S \rightarrow D + S + S - S $
-
-    $ S \rightarrow 8 + D + S - S $
-
-    $ S \rightarrow 8 + 6 + D - S $
-
-    $ S \rightarrow 8 + 6 + 3 - D $
-
-    $ S \rightarrow 8 + 6 + 3 - 5 $
-
-
-    $ S \rightarrow S + S $
-
-    $ S \rightarrow D + S $
-
-    $ S \rightarrow 8 + S + S $
-
-    $ S \rightarrow 8 + D + S $
-
-    $ S \rightarrow 8 + 6 + S - S $
-
-    $ S \rightarrow 8 + 6 + D - S $
-
-    $ S \rightarrow 8 + 6 + 3 - D $
-
-    $ S \rightarrow 8 + 6 + 3 - 5 $
-
-    \end{multicols}
+    All of these trees can be further expanded and can be reached by both right and left most derivations.
 \end{enumerate}
 
 
@@ -177,9 +159,9 @@
 
     \item There are $3$ parse trees possible.
     
-    \item No, the number of derivations for the string in Q4.4 is not same as the number of parse trees because 
+    \item No, the number of derivations for the string in Q4.4 is not same as the number of parse trees because everytime left/rightmost have to choose a branch where there is another possible route to be picked. Therefore, the derivation to reach the same tree can vary. 
     
-    \item Yes, the grammar is ambiguous because there are multiple parse trees possible.
+    \item Yes, the grammar is ambiguous because there are multiple parse trees possible and the structure is not uniquely defined and it has associativity.
     
     \item $ S \rightarrow  S + T \mid T $
     
