@@ -48,9 +48,8 @@
     \item (b $\mid$ ab)*a?
     \item (ab*c) $\mid$ (ba*c) $\mid$ (ac*b) $\mid$ (bc*a) $\mid$ (cb*a) $\mid$ (ca*b)
     \item It can not be constructed because regex cannot do storage.
-    \item \text{[a-z, A-Z, 0-9]}\{13,18\} @ \text{[a-z, A-Z]} \{4\} (.edu)
-    \item .* ( ( ( ) .*
-
+    \item \text{[a-z, A-Z, 0-9]}\{13,18\} @ \text{[a-z, A-Z]} \{4\} ($\backslash$. edu)
+    \item .* $\backslash$( $\backslash$( $\backslash$( $\backslash$) .*
 
 \end{enumerate}
 
@@ -94,7 +93,7 @@
     
     $ X \rightarrow aX \mid bX \mid \epsilon $
 
-    \item $ S \rightarrow aSb \mid bSa \mid \epsilon $
+    \item $ S \rightarrow aSbS \mid bSaS \mid \epsilon $
     
     \item Yes, the given grammar is ambiguous because it does not specify a unique parse tree for any string in the language. The unambiguous grammar is:
     
@@ -207,7 +206,7 @@
 
     \item Yes, context-free grammars can represent all regular languages.
     
-    Yes, because all regular languages can be represented by CFGs.
+    No, because regular languages does not translate all grammar.
     
     No, Context-free grammars cannot represent all possible languages (i.e. non-regular).
 \end{enumerate}
