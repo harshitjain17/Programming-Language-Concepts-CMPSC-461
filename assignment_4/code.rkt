@@ -1,3 +1,4 @@
+
 ;ANSWER 1
 (define (cashBack year_spent)
   (cond
@@ -15,9 +16,9 @@
     ((null? list1) list2)
     ((null? list2) list1)
     ((>= (car list1) (car list2))
-     (list (car list1) (merge (cdr list1) list2)))
+     (cons (car list1) (merge (cdr list1) list2)))
     (else
-     (list (car list2) (merge list1 (cdr list2))))
+     (cons (car list2) (merge list1 (cdr list2))))
    )
 )
 
