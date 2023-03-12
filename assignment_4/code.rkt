@@ -8,8 +8,6 @@
    )
 )
 
-(cashBack 2500)
-
 
 ;ANSWER 2
 (define (merge list1 list2)
@@ -23,8 +21,6 @@
    )
 )
 
-(merge '( 7 5 2) '( 9 6 2 ) )
-
 
 ;ANSWER 3
 (define (myGCD x y)
@@ -33,8 +29,6 @@
     ((> y 0) (myGCD y (remainder x y)))
   )
 )
-
-(myGCD 19 38)
 
 
 ;ANSWER 4
@@ -45,8 +39,6 @@
   )
 )
 
-(ncall 4 (lambda (x) (+ x 2)) 2)
-
 
 ;ANSWER 5
 (define (myFunc x y)
@@ -56,5 +48,3 @@
     ((and (> x 0) (> y 0)) (myFunc (- x 1) (myFunc x (- y 1))))
   )
 )
-
-(myFunc 3 3)
