@@ -43,17 +43,43 @@
 
 
 % PROBLEM 1
-\newproblem 
-The binary value $01010000 01010011 00110010 00110011$ is equivalent to the decimal number $1347629619$ in a $32$-bit unsigned integer.
+\newproblem
 
-The binary value $01010000 01010011 00110010 00110011$ is equivalent to the ASCII codes for the "PS23".
+number: $01010000 01010011 00110010 00110011$
 
-The binary value $01010000 01010011 00110010 00110011$ is equivalent to the floating point number $1.649969458580017$ in IEEE 754 single precision format.
+The given binary value is equivalent to the decimal number $1347629619$ in a $32$-bit unsigned integer.
 
-The binary value $01010000 01010011 00110010 00110011$ is equivalent to the array int8 t$[4]$ = ${80, 83, 50, 51}$.
+The given binary value is equivalent to the ASCII codes for the "PS23".
+
+The given binary value is equivalent to the floating point number $14173129728$ in IEEE 754 single precision format.
+
+The given binary value is equivalent to the array int8 t$[4]$ = ${80, 83, 50, 51}$.
 
 % PROBLEM 2
 \newproblem 
+\begin{enumerate}
+
+    \item Each union occupies the maximum size of its member types, which are:
+
+    U1: $8$ bytes (double)
+
+    U2: $12$ bytes ($3$ ints $*$ $4$ bytes)
+
+    U3: $8$ bytes (char pointer)
+
+    U4: $5$ bytes (char array of size $5$)
+
+    The size of struct $S$ is $25$ bytes.
+
+    \item The starting address of $s$ is $2020$, so we can calculate the starting addresses of s.info.other and s.student.name by adding the sizes of the previous members:
+
+    s.info.other: $2020 + 4$ (index) $= 2024$
+    
+    s.student.name: $2024 + 8$ (info) $= 2032$
+    
+    \item The total size will be $28$ bytes.
+
+\end{enumerate}
 
 % PROBLEM 3
 \newproblem 
@@ -103,18 +129,34 @@ The binary value $01010000 01010011 00110010 00110011$ is equivalent to the arra
 % PROBLEM 4
 \newproblem
 \begin{enumerate}
-    \item
+
+    \item The type of variable $x$ is \textbf{integer}, $y$ is \textbf{float}, and $z$ is \textbf{string}.
     
-    \item
+    \item $a$ is a \textbf{float}. The value of $a$ is $1.1$. This is because the $+$ operator performs integer arithmetic if both operands are integers, but float arithmetic if one or both operands are floats. In this case, $x$ is an integer and $y$ is a float, so float arithmetic is performed.
     
-    \item
+    $b$ is an \textbf{integer}. The value of $b$ is $1$. This is because the $/$ operator performs integer division if both operands are integers. In this case, $x$ and $1$ are both integers, so integer division is performed.
     
-    \item
+    \item $c$ will raise a \textbf{TypeError exception}. This is because the $+$ operator cannot perform arithmetic on an integer and a string.
+    
+    \item The output for the statement $1+1$ is $2$. This is because the $+$ operator performs integer arithmetic when both operands are integers.
+    
+    The output for the statement $"1"+"1"$ is $"11"$. This is because the $+$ operator performs string concatenation when both operands are strings.
+
 \end{enumerate}
 
 % PROBLEM 5
 \newproblem 
 
+\textbf{Memory regions for dynamic and flexible arrays:}
 
+\underline{Static data area:} The static data area is not suitable for dynamic and flexible arrays because the size of these arrays is not known at compile time.
+
+\underline{Stack:} The stack is also not suitable for dynamic and flexible arrays because the size of these arrays can change at runtime.
+
+\underline{Heap:} The \textbf{heap} is the most suitable memory region for dynamic and flexible arrays because the size of these arrays can be changed at runtime. In heap, memory can be allocated and deallocated at runtime. Heap memory is managed by the operating system and is typically used for data that needs to persist beyond the lifetime of a function or program, and whose size is not known at compile-time.
+
+\textbf{Bounds checking:}
+
+Bounds checking can be supported by using a pointer to the start of the array and a pointer to the end of the array. When accessing an element of the array, the pointer to the start of the array can be used to check if the index of the element is within the bounds of the array. The language can also check array access against this size. If the array access is out of bounds, the language can throw an exception or trigger a runtime error.
 
 \end{document}
